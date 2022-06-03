@@ -1,0 +1,12 @@
+https://spacejelly.dev/posts/how-to-create-a-twitch-chat-bot-with-node-js-tmi-js-heroku/
+mkdir my-twitch-bot
+cd my-twitch-bot
+npm init
+
+"scripts": {
+  "start": "node server.js"
+},
+
+npm install tmi.js
+
+npm install dotenv

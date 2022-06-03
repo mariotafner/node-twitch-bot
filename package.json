@@ -1,0 +1,20 @@
+{
+  "name": "twitch-bot",
+  "version": "1.0.0",
+  "description": "bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "node-twitch-bot"
+  },
+  "author": "mariofabre",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "tmi.js": "^1.8.5"
+  }
+}
