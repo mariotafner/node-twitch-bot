@@ -26,6 +26,8 @@ client.on('message', async (channel, context, message) => {
 
     console.log(context.username + ': ' + message);
 
-    if (f(message.toLocaleLowerCase().trim()) === 'que mario?')
+    if (f(message.toLocaleLowerCase().trim()).startsWith('que mario?')) {
         client.say(channel, `/timeout ${context.username} 1`)
+        client.say(channel, `${context.username} essa piada é proibida aqui!`)
+    }
 });
