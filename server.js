@@ -14,6 +14,8 @@ const client = new tmi.Client({
 });
 
 client.connect();
+
+console.log('Connected to Twitch')
 client.on('message', async (channel, context, message) => {
     const isNotBot = context.username.toLowerCase() !== process.env.TWITCH_BOT_USERNAME.toLowerCase()
     if ( !isNotBot ) return
@@ -26,8 +28,14 @@ client.on('message', async (channel, context, message) => {
 
     console.log(context.username + ': ' + message);
 
-    if (f(message.toLocaleLowerCase().trim()).startsWith('que mario?')) {
-        client.say(channel, `/timeout ${context.username} 1`)
-        client.say(channel, `${context.username} essa piada é proibida aqui!`)
+    let formated = f(message.toLocaleLowerCase().trim())
+
+    let blocked_messages = ['que mario?', 'q mario?', 'q m4rio?', 'que m4rio?', 'q mari0?', 'que mari0?', 'q m4ri0?', 'que m4ri0?']
+    for (blocked_messages of blocked_messages) {
+        if (formated.startsWith(blocked_messages)) {
+            client.say(channel, `/timeout ${context.username} 1`)
+            client.say(channel, `${context.username} essa piada é proibida aqui!`)
+            return
+        }
     }
 });
